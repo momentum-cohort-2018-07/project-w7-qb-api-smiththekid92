@@ -26,10 +26,10 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
-        render json: @user, status: :created, location: @user
+        format.json { render @user, status: :created, location: @user }
       else
         format.html { render :new }
-        render json: @user.errors, status: :unprocessable_entity
+        format.json { render @user.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -38,10 +38,10 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        render json: @user, status: :created, location: @user
+        format.json { render @user, status: :created, location: @user }
       else
         format.html { render :edit }
-        render json: @user.errors, status: :unprocessable_entity
+        format.json { render @user.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -50,7 +50,17 @@ class UsersController < ApplicationController
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
+      format.json { render head :no_content }
+    end
+  end
+
+  def verify_authentication
+    user = authenticate_with_http_token do |token, options|
+      User.find_by_api_token(token)
+    end
+
+    unless user
+      render json: { error: "You don't have permission to access these resources" }, status: :unauthorized
     end
   end
 
@@ -62,4 +72,6 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:username, :email, :password)
     end
+
+    
 end
