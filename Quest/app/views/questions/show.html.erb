@@ -1,0 +1,19 @@
+<%= render 'header', post: @question %>
+<p id="notice"><%= notice %></p>
+
+<div>
+<h1><%= @question.title %></h1>
+<hr>
+<h5><%= @question.user.username %></h5><br>
+<p><%= @question.body %></p>
+<hr>
+ <% @answers.each do |answer| %>
+   Title: <strong><%= answer.title %></strong> <em>By: <%= User.find(answer.user_id).username %></em><br>
+   <%= answer.body %><br>
+   <br>
+ <% end %>
+</div>
+
+<%= link_to 'Have an answer?', new_question_answer_path(question_id:@question.id) %><br>
+
+<%= link_to 'Back', root_path %>

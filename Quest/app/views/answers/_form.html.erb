@@ -1,0 +1,29 @@
+<%= form_with model: answer, url: question_answers_path, remote: true do |form| %>
+  <% if answer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(answer.errors.count, "error") %> prohibited this answer from being saved:</h2>
+
+      <ul>
+      <% answer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %> 
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+
+  <p>
+    <%= form.hidden_field :username, :value => current_user.username %>
+  </p>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
