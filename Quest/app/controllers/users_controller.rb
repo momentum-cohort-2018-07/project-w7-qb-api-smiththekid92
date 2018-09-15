@@ -9,7 +9,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    render json: @user
   end
 
   def new
@@ -46,6 +45,7 @@ class UsersController < ApplicationController
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.json { render head :no_content }
     end
   end
 
