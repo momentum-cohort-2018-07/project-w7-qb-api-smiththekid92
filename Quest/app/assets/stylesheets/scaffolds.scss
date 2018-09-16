@@ -1,6 +1,6 @@
 body {
-  background-color: #fff;
-  color: #333;
+  background-color: #E4CC6A;
+  color: rgb(27, 26, 26);
   margin: 33px;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -26,12 +26,11 @@ a {
 
 
   &:visited {
-    color: #666;
+    color: #615e5e;
   }
 
   &:hover {
-    color: #fff;
-    background-color: rgba(5, 125, 129, 0.808);
+    color: #078dcc;
   }
 }
 
@@ -55,13 +54,13 @@ div {
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
+  background-color: #bb0303;
   display: table;
 }
 
 #error_explanation {
   width: 450px;
-  border: 2px solid red;
+  border: 2px solid #bb0303;
   padding: 7px 7px 0;
   margin-bottom: 20px;
   background-color: #f0f0f0;
@@ -72,7 +71,7 @@ div {
     padding: 5px 5px 5px 15px;
     font-size: 12px;
     margin: -7px -7px 0;
-    background-color: #c00;
+    background-color: #bb0303;
     color: #fff;
   }
 

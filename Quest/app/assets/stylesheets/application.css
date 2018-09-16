@@ -18,6 +18,7 @@
   text-decoration: none;
   list-style: none;
   display: inline;
+  color: lightblue;
 }
 
  @import "bootstrap";
