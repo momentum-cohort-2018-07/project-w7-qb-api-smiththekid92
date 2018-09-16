@@ -1,6 +1,6 @@
 body {
-  background-color: #E4CC6A;
-  color: rgb(27, 26, 26);
+  background-color: #16BAC5;
+  color: #211F2D;
   margin: 33px;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -15,22 +15,17 @@ p, ol, ul, td {
 }
 
 pre {
-  background-color: #eee;
+  background-color: #211F2D;
   padding: 10px;
   font-size: 11px;
 }
 
 a {
-  color: #000;
+  color: #34344A;
   text-decoration: none;
 
-
-  &:visited {
-    color: #615e5e;
-  }
-
   &:hover {
-    color: #078dcc;
+    color: #80475E;
   }
 }
 
@@ -83,4 +78,8 @@ div {
 
 label {
   display: block;
+}
+
+.question-view{
+  color: #211F2D;
 }

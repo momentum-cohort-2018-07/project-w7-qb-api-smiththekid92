@@ -3,8 +3,7 @@
 
 <div>
 <h1><%= @question.title %></h1>
-<hr>
-<h5><%= @question.user.username %></h5><br>
+<h5><%= @question.user.username %></h5>
 <p><%= @question.body %></p>
 <hr>
  <% @answers.each do |answer| %>

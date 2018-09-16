@@ -6,7 +6,7 @@
 <%= page_entries_info @questions %>
 
 <h3><%= link_to "Have a question?", new_question_path %></h3>
-
+<hr>
 <div class="main_body">
   <div class="question-view">
   <table>
@@ -14,14 +14,16 @@
       <div>
         <% @questions.each do |question| %>
         <h1><%= question.title %></h1>
-        <hr>
-        <h4>By:<%= question.user.username %></h4><br>
+        <h4>By:<%= question.user.username %></h4>
         <p><%= question.body %></p>
-        <hr>
         <%= link_to 'Show Answer(s)', question_path(question) %>
+        <hr>
         <% end %>
       </div>
     </tbody>
   </table>
+
+<%= paginate @questions %>
+<%= page_entries_info @questions %>
 
 </div>
