@@ -1,0 +1,19 @@
+<h1>Please Login To Continue</h1>
+
+<% if flash[:notice] %>
+<p class="alert alert-success"><%= flash[:notice] %></p>
+<% end %>
+<% if flash[:error_message]%>
+<p class="alert alert-danger"><%= flash[:error_message] %></p>
+<% end %>
+<%= form_with(url: session_path) do %>
+    <%=label_tag :username %>
+    <%=text_field_tag :username %><br><br>
+    <%=label_tag :password %>
+    <%=password_field_tag :password %>
+    <%=submit_tag "Log in" %>
+<% end %>
+
+<h4>New User? Create a Quest Account to Unlock more Features!</h4>
+
+<button><%= link_to 'Create Account', new_user_path %></button>
