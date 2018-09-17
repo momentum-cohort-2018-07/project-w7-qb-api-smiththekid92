@@ -1,3 +1,25 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background-color: #3ec8e0;
+  color: #333;
+  margin: 33px;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+
+a {
+  color: #000;
+  text-decoration: none;
+
+  &:visited {
+    color: #1242;
+  }
+
+  &:hover {
+    background-color: none;
+  }
+}
