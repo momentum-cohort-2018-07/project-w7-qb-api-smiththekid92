@@ -16,6 +16,7 @@ class QuestionsController < ApplicationController
   end
 
   def edit
+    redirect_to new_session_path, notice: 'You must be logged in to edit a question' if !current_user
     @question = Question.find(params[:id])
   end
 

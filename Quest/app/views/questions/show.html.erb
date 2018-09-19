@@ -5,6 +5,7 @@
 <h1><%= @question.title %></h1>
 <h5><%= @question.user.username %></h5>
 <p><%= @question.body %></p>
+   <%= link_to 'Edit', edit_question_path %> 
 <hr>
  <% @answers.each do |answer| %>
    Title: <strong><%= answer.title %></strong> <em>By: <%= User.find(answer.user_id).username %></em><br>
