@@ -19,7 +19,7 @@ class User < ApplicationRecord
     }
 
   pg_search_scope :search_all_variants, 
-    against: => :username, 
+    against: [:username], 
       using: { 
         tsearch: { dictionary: 'english' }
       }
