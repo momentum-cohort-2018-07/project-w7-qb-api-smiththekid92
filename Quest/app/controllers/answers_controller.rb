@@ -33,11 +33,14 @@ class AnswersController < ApplicationController
   def update
     @answer = Answer.find(params[:id])
 
-    if @answer.update(answer_params)
-
-        redirect_to @answer
+    if @answer.user_id == current_user.id
+      if @answer.update(answer_params)
+          redirect_to @answer
+      else
+          render 'edit'
+      end
     else
-        render 'edit'
+      redirect_to @question, notice: 'You do not have rights to update this answer!'
     end
   end
 

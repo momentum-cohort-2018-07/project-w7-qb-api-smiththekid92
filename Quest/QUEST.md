@@ -41,3 +41,22 @@
 Ex: *localhost:3000/questions/:id/*
 
 *localhost:3000/questions/45/*
+
+* Routes:
+
+*Prefix Verb   URI Pattern  
+
+GET    /session/new(.:format)                     
+DELETE /session(.:format)                         
+POST   /session(.:format)                         
+GET    /users(.:format)                           
+POST   /users(.:format)                          
+GET    /users/new(.:format)                       
+GET    /users/:id/edit(.:format)                  
+GET    /users/:id(.:format)                       
+PATCH  /users/:id(.:format)                       
+PUT    /users/:id(.:format)                       
+DELETE /users/:id(.:format)                       
+GET    /questions/:question_id/answers(.:format)  
+POST   /questions/:question_id/answers(.:format)   
+GET    /                                                                   GET    /api/v1/users(.:format)                                             POST   /api/v1/users(.:format)                                             GET    /api/v1/users/new(.:format)                                         GET    /api/v1/users/:id/edit(.:format)                                    GET    /api/v1/users/:id(.:format)                                         PATCH  /api/v1/users/:id(.:format)                                         PUT    /api/v1/users/:id(.:format)                                         DELETE /api/v1/users/:id(.:format)                                         GET    /api/v1/questions/:question_id/answers(.:format)                    POST   /api/v1/questions/:question_id/answers(.:format)                    GET    /api/v1/questions/:question_id/answers/new(.:format)                GET    /api/v1/questions/:question_id/answers/:id/edit(.:format)           GET    /api/v1/questions/:question_id/answers/:id(.:format)                PATCH  /api/v1/questions/:question_id/answers/:id(.:format)                PUT    /api/v1/questions/:question_id/answers/:id(.:format)                DELETE /api/v1/questions/:question_id/answers/:id(.:format)                GET    /api/v1/questions(.:format)                                         POST   /api/v1/questions(.:format)                                         GET    /api/v1/questions/new(.:format)                                     GET    /api/v1/questions/:id/edit(.:format)                                GET    /api/v1/questions/:id(.:format)                                     PATCH  /api/v1/questions/:id(.:format)                                     PUT    /api/v1/questions/:id(.:format)                                     DELETE /api/v1/questions/:id(.:format)                                     

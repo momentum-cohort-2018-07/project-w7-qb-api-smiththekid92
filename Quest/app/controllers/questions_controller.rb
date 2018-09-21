@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
 
   def show
     @answers = @question.answers
-    @answer = Answer.new(params[:question_id])
+    @answer = Answer.find(params[:id])
   end
 
   def new
@@ -16,6 +16,7 @@ class QuestionsController < ApplicationController
   end
 
   def edit
+    redirect_to new_session_path, notice: 'You must be logged in to edit a question' if !current_user
     @question = Question.find(params[:id])
   end
 
@@ -23,7 +24,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
 
     if @question.save
-        redirect_to @question
+        redirect_to question_path(@question)
     else
         render 'new'
     end
@@ -31,12 +32,10 @@ class QuestionsController < ApplicationController
 
   def update
     @question = Question.find(params[:id])
-
-    if @question.update(question_params)
-
-        redirect_to @question
+    if @question.update(question_params) 
+      redirect_to question_path
     else
-        render 'edit'
+      render 'edit'
     end
   end
 
@@ -47,8 +46,8 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
-  # def question_params
-  #   params.require(:question).permit(:title, :body, :username)
-  # end
+  def question_params
+    params.require(:question).permit(:title, :body, :username)
+  end
 
 end

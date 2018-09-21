@@ -38,7 +38,7 @@ class Api::V1::QuestionsController < ApplicationController
       if @question.save
         render json: @question, status: :created, location: @question
       else
-          render json: @question.errors, status: :unprocessable_entity
+        render json: @question.errors, status: :unprocessable_entity
       end
     end
   
@@ -48,4 +48,9 @@ class Api::V1::QuestionsController < ApplicationController
     def set_question
       @question = Question.find(params[:id])
     end
+
+    def question_params
+      params.require(:question).permit(:title, :body, :username, :user_id)
+    end
+
 end

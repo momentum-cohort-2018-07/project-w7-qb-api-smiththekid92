@@ -8,4 +8,19 @@ class User < ApplicationRecord
   has_many :questions
 
   has_many :answers
+
+  include PgSearch
+
+  pg_search_scope :search_name, against: :username
+  pg_search_scope :search_all_partial_matches, 
+    against: [:username, :email], 
+    using: {
+      tsearch: { prefix: true }
+    }
+
+  pg_search_scope :search_all_variants, 
+    against: [:username], 
+      using: { 
+        tsearch: { dictionary: 'english' }
+      }
 end

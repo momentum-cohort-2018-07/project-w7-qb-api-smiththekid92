@@ -5,13 +5,21 @@
 <h1><%= @question.title %></h1>
 <h5><%= @question.user.username %></h5>
 <p><%= @question.body %></p>
+
+<% if (@question.user_id == current_user.id) %>
+   <%= link_to 'Edit', edit_question_path %> 
+<% end %>
 <hr>
- <% @answers.each do |answer| %>
+ <p><% @answers.each do |answer| %>
    Title: <strong><%= answer.title %></strong> <em>By: <%= User.find(answer.user_id).username %></em><br>
-   <%= answer.body %><br>
-   <br>
- <% end %>
-</div>
+   <%= answer.body %></p><br><hr>
+
+  <%= link_to 'Edit Answer', edit_question_answer_path(@question, @answer) %>
+<% end %>
+
+<hr><%= link_to 'Have an answer?', new_question_answer_path(question_id:@question.id) %><br>
+
+<%= link_to 'Back', root_path %>
 
 <%= link_to 'Have an answer?', new_question_answer_path(question_id:@question.id) %><br>
 
